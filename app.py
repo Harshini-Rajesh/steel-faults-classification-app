@@ -170,9 +170,9 @@ st.table(comparison_df)
 st.markdown("---")
 st.subheader("Model Performance Observations")
 st.markdown("""
-- **Linear vs Non-Linear Models**: Logistic Regression gives a stable baseline with decent AUC, but struggles with complex patterns compared to tree or margin-based models.
-- **Decision Tree Behavior**: Captures distinct threshold splits nicely on the steel geometry attributes, giving decent overall accuracy though it tends to overfit slightly if unpruned.
-- **KNN Performance**: Works okay for local neighborhoods, but performance fluctuates depending on how well the features were normalized by the scaler.
-- **Naive Bayes Limitation**: Struggles the most here because the steel features clearly violate the strict conditional independence assumption.
-- **SVM Results**: Outperforms the others overall, showing that finding the optimal hyperplane in the scaled feature space handles these multi-class boundaries best.
+- **Linear vs Non-Linear Models**: Logistic Regression gives a stable baseline with decent AUC (~0.94), but struggles with complex patterns compared to tree or margin-based models.
+- **Decision Tree Behavior**: Captures distinct threshold splits exceptionally well on the steel geometry attributes, emerging as the clear top performer with an accuracy of 94.90% and an MCC of 0.9345.
+- **KNN Performance**: Works reasonably well for local neighborhoods (reaching ~0.80 accuracy and high AUC), though performance fluctuates depending on feature normalization.
+- **Naive Bayes Limitation**: Struggles the most here by far (lowest accuracy at 46.42%), because the steel features clearly violate the strict conditional independence assumption.
+- **SVM Results**: Performs very solidly as a margin-based classifier (~0.80 accuracy, 0.96 AUC), effectively separating multi-class boundaries in the scaled feature space.
 """)
