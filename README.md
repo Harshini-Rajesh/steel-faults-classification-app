@@ -37,14 +37,14 @@ The table below summarizes the dynamic evaluation metrics calculated across all 
 
 ## e. Model Performance Observations & Winner Declaration
 
-| ML Model Name | Observation about model performance |
-| :--- | :--- |
-| **Logistic Regression** | Provides a solid linear baseline with strong AUC (0.8621), but its capacity is restricted by non-linear relationships among geometric features. |
-| **Decision Tree** | Successfully captures threshold-based rules on feature combinations, delivering balanced F1 and MCC scores, though susceptible to variance. |
-| **KNN** | Captures localized cluster similarity effectively when features are normalized, outperforming decision trees and logistic regression. |
-| **Naive Bayes** | Performs poorly due to strong violations of the conditional independence assumption among highly correlated physical dimension attributes. |
-| **Support Vector Machine** | Achieves top performance across all metrics (Accuracy: 0.7769, AUC: 0.9124, MCC: 0.7230) by maximizing optimal margin boundaries in scaled vector space. |
-| **Overall Winner for your dataset?** | **Support Vector Machine (SVM)** is the overall winner for this dataset, outperforming all other classifiers in accuracy, macro AUC, and MCC. |
+## Key Observations and Performance Analysis
+
+- **Logistic Regression**: Serves as a reliable linear baseline, achieving a strong macro-AUC of 0.9419. However, its overall accuracy is capped around 73.26% with an MCC of 0.6551. Because the steel plates dataset involves complex, non-linear geometric and contour boundaries across multiple defect classes, a purely linear decision boundary struggles to cleanly separate overlapping feature distributions.
+- **Decision Tree Classifier**: Emerges as the clear top-performing model across every single metric, yielding a remarkable 94.90% accuracy, 95.05% F1-score, and an outstanding MCC of 0.9345. Tree-based axis-aligned splits map naturally onto physical steel plate attributes (such as perimeter, length, and conveyor anomalies), capturing intricate threshold rules effectively while maintaining robust generalization on unseen test instances.
+- **K-Nearest Neighbors (KNN)**: Performs very competitively with an accuracy of 79.80% and a high AUC of 0.9671. By relying on local neighborhood proximity in the feature space, it handles multi-class clusters effectively; however, its performance remains sensitive to how well the attributes were preprocessed and scaled during training.
+- **Gaussian Naive Bayes**: Exhibits the lowest performance across the board, recording an accuracy of 46.42% and an F1-score of 0.4027. This drop is expected because Naive Bayes assumes strict conditional independence between features—an assumption that is heavily violated by the steel dataset, where geometric and contour measurements are inherently correlated.
+- **Support Vector Machine (SVM)**: Demonstrates strong, stable results (Accuracy: 79.70%, AUC: 0.9656, F1: 0.8136, MCC: 0.7376). By projecting features into a higher-dimensional space and optimizing hyperplane margins, the SVM effectively handles multi-class boundaries, sitting just behind the Decision Tree as one of the most reliable models for this problem.
+- **Overall Winner**: **Decision Tree Classifier** clearly outperforms all other models on this dataset, achieving the highest accuracy (94.90%), highest F1-score (0.9505), and highest MCC (0.9345).
 
 ---
 
