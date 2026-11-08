@@ -200,10 +200,34 @@ st.dataframe(comparison_df, use_container_width=True, hide_index=True)
 
 st.markdown("---")
 st.subheader("Model Performance Observations")
-st.markdown("""
-- **Logistic Regression**: Serves as a reliable linear baseline, achieving a strong macro-AUC of 0.9419. However, its overall accuracy is capped around 73.26% with an MCC of 0.6551. Because the steel plates dataset involves complex, non-linear geometric and contour boundaries across multiple defect classes, a purely linear decision boundary struggles to cleanly separate overlapping feature distributions.
-- **Decision Tree Classifier**: Emerges as the clear top-performing model across every single metric, yielding a remarkable 94.90% accuracy, 95.05% F1-score, and an outstanding MCC of 0.9345. Tree-based axis-aligned splits map naturally onto physical steel plate attributes (such as perimeter, length, and conveyor anomalies), capturing intricate threshold rules effectively while maintaining robust generalization on unseen test instances.
-- **K-Nearest Neighbors (KNN)**: Performs very competitively with an accuracy of 79.80% and a high AUC of 0.9671. By relying on local neighborhood proximity in the feature space, it handles multi-class clusters effectively; however, its performance remains sensitive to how well the attributes were preprocessed and scaled during training.
-- **Gaussian Naive Bayes**: Exhibits the lowest performance across the board, recording an accuracy of 46.42% and an F1-score of 0.4027. This drop is expected because Naive Bayes assumes strict conditional independence between features—an assumption that is heavily violated by the steel dataset, where geometric and contour measurements are inherently correlated.
-- **Support Vector Machine (SVM)**: Demonstrates strong, stable results (Accuracy: 79.70%, AUC: 0.9656, F1: 0.8136, MCC: 0.7376). By projecting features into a higher-dimensional space and optimizing hyperplane margins, the SVM effectively handles multi-class boundaries, sitting just behind the Decision Tree as one of the most reliable models for this problem.
-""")
+
+obs_data = [
+    {
+        "ML Model Name": "Logistic Regression",
+        "Key Performance Metrics": "Accuracy: 73.26% | AUC: 0.9419 | MCC: 0.6551",
+        "Technical Observations & Analysis": "Serves as a reliable linear baseline, achieving a strong macro-AUC of 0.9419. However, its overall accuracy is capped around 73.26% with an MCC of 0.6551. Because the steel plates dataset involves complex, non-linear geometric and contour boundaries across multiple defect classes, a purely linear decision boundary struggles to cleanly separate overlapping feature distributions."
+    },
+    {
+        "ML Model Name": "Decision Tree Classifier",
+        "Key Performance Metrics": "Accuracy: 94.90% | F1: 0.9505 | MCC: 0.9345",
+        "Technical Observations & Analysis": "Emerges as the clear top-performing model across every single metric, yielding a remarkable 94.90% accuracy, 95.05% F1-score, and an outstanding MCC of 0.9345. Tree-based axis-aligned splits map naturally onto physical steel plate attributes (such as perimeter, length, and conveyor anomalies), capturing intricate threshold rules effectively while maintaining robust generalization on unseen test instances."
+    },
+    {
+        "ML Model Name": "K-Nearest Neighbors (KNN)",
+        "Key Performance Metrics": "Accuracy: 79.80% | AUC: 0.9671",
+        "Technical Observations & Analysis": "Performs very competitively with an accuracy of 79.80% and a high AUC of 0.9671. By relying on local neighborhood proximity in the feature space, it handles multi-class clusters effectively; however, its performance remains sensitive to how well the attributes were preprocessed and scaled during training."
+    },
+    {
+        "ML Model Name": "Gaussian Naive Bayes",
+        "Key Performance Metrics": "Accuracy: 46.42% | F1: 0.4027",
+        "Technical Observations & Analysis": "Exhibits the lowest performance across the board, recording an accuracy of 46.42% and an F1-score of 0.4027. This drop is expected because Naive Bayes assumes strict conditional independence between features—an assumption that is heavily violated by the steel dataset, where geometric and contour measurements are inherently correlated."
+    },
+    {
+        "ML Model Name": "Support Vector Machine (SVM)",
+        "Key Performance Metrics": "Accuracy: 79.70% | AUC: 0.9656 | F1: 0.8136 | MCC: 0.7376",
+        "Technical Observations & Analysis": "Demonstrates strong, stable results (Accuracy: 79.70%, AUC: 0.9656, F1: 0.8136, MCC: 0.7376). By projecting features into a higher-dimensional space and optimizing hyperplane margins, the SVM effectively handles multi-class boundaries, sitting just behind the Decision Tree as one of the most reliable models for this problem."
+    }
+]
+
+obs_df = pd.DataFrame(obs_data)
+st.dataframe(obs_df, use_container_width=True, hide_index=True)
