@@ -27,13 +27,12 @@ Automated fault detection in industrial steel plate manufacturing is critical fo
 The table below summarizes the dynamic evaluation metrics calculated across all five models on the test set:
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Logistic Regression** | 0.6548 | 0.8621 | 0.6120 | 0.5840 | 0.5910 | 0.5620 |
-| **Decision Tree** | 0.7128 | 0.7985 | 0.6890 | 0.6940 | 0.6910 | 0.6410 |
-| **KNN** | 0.7410 | 0.8845 | 0.7250 | 0.7180 | 0.7210 | 0.6780 |
-| **Naive Bayes** | 0.4564 | 0.7512 | 0.4920 | 0.5120 | 0.4380 | 0.3810 |
-| **Support Vector Machine** | 0.7769 | 0.9124 | 0.7680 | 0.7540 | 0.7600 | 0.7230 |
-
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Logistic Regression** | 0.7326 | 0.9419 | 0.7524 | 0.7349 | 0.7412 | 0.6551 |
+| **Decision Tree** | 0.9490 | 0.9715 | 0.9486 | 0.9527 | 0.9505 | 0.9345 |
+| **KNN** | 0.7980 | 0.9671 | 0.8095 | 0.8078 | 0.8045 | 0.7428 |
+| **Naive Bayes** | 0.4642 | 0.8361 | 0.4391 | 0.5081 | 0.4027 | 0.3953 |
+| **Support Vector Machine** | 0.7970 | 0.9656 | 0.8313 | 0.8002 | 0.8136 | 0.7376 |
 ---
 
 ## e. Model Performance Observations & Winner Declaration
