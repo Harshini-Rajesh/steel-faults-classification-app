@@ -22,7 +22,7 @@ Automated fault detection in industrial steel plate manufacturing is critical fo
 
 ---
 
-## d. Models Used & Comparison Benchmark
+## e. Models Used & Comparison Benchmark
 
 The table below summarizes the dynamic evaluation metrics calculated across all five models on the test set:
 
@@ -35,11 +35,7 @@ The table below summarizes the dynamic evaluation metrics calculated across all 
 | **Support Vector Machine** | 0.7970 | 0.9656 | 0.8313 | 0.8002 | 0.8136 | 0.7376 |
 ---
 
-## e. Model Performance Observations & Winner Declaration
-
-## Key Observations and Performance Analysis
-
-## Model Performance Observations
+## f. Model Performance Observations & Winner Declaration
 
 | ML Model Name | Primary Metrics | Key Technical Observations & Theoretical Justification |
 | :--- | :--- | :--- |
