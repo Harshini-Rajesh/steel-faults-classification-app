@@ -17,13 +17,44 @@ st.set_page_config(
 
 st.markdown("""
     <style>
-    .main-title {font-size: 28px; font-weight: 700; color: #1f77b4; margin-bottom: 0px;}
-    .sub-title {font-size: 15px; color: #555; margin-top: 4px;}
+    /* Center-aligned container for main title and subtitle in Arial font */
+    .header-container {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 2rem;
+    }
+    .main-title {
+        font-size: 32px; 
+        font-weight: 700; 
+        margin-bottom: 4px;
+    }
+    .sub-title {
+        font-size: 16px; 
+        color: #555555; 
+        margin-top: 0px;
+    }
+    
+    /* Subheaders sizing */
+    h2, h3 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    /* Dynamic model name colour using accent blue */
+    .highlight-model {
+        color: #2563eb;
+        font-weight: 700;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="main-title">Industrial Steel Plates Fault Detection System</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-title">Machine Learning Assignment Evaluation App</p>', unsafe_allow_html=True)
+# Center-aligned Header and Subheading
+st.markdown("""
+    <div class="header-container">
+        <div class="main-title">Industrial Steel Plates Fault Detection System</div>
+        <div class="sub-title">Machine Learning Assignment Evaluation App</div>
+    </div>
+""", unsafe_allow_html=True)
+
 st.markdown("---")
 
 @st.cache_resource
@@ -95,7 +126,8 @@ rec = recall_score(y_test, preds, average='macro', zero_division=0)
 f1 = f1_score(y_test, preds, average='macro', zero_division=0)
 mcc = matthews_corrcoef(y_test, preds)
 
-st.subheader(f"Performance Evaluation: {model_choice}")
+st.markdown(f"<h3>Performance Evaluation: <span class='highlight-model'>{model_choice}</span></h3>", unsafe_allow_html=True)
+
 col1, col2, col3, col4, col5, col6 = st.columns(6)
 col1.metric("Accuracy", f"{acc:.4f}")
 col2.metric("AUC Score", f"{auc:.4f}")
@@ -125,7 +157,7 @@ with col_right:
     st.dataframe(preview_df[['Actual Fault', 'Predicted Fault']], use_container_width=True)
 
 st.markdown("---")
-st.subheader("Overall Model Comparison Benchmark")
+st.subheader("Overall Model Comparison")
 
 @st.cache_data
 def compute_all_models_metrics():
@@ -164,8 +196,7 @@ def compute_all_models_metrics():
     return pd.DataFrame(summary_results)
 
 comparison_df = compute_all_models_metrics()
-st.table(comparison_df)
-
+st.dataframe(comparison_df, use_container_width=True, hide_index=True)
 
 st.markdown("---")
 st.subheader("Model Performance Observations")
