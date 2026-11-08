@@ -167,4 +167,12 @@ comparison_df = compute_all_models_metrics()
 st.table(comparison_df)
 
 
-######## TO DO: add observation section here
+st.markdown("---")
+st.subheader("Model Performance Observations")
+st.markdown("""
+- **Linear vs Non-Linear Models**: Logistic Regression gives a stable baseline with decent AUC, but struggles with complex patterns compared to tree or margin-based models.
+- **Decision Tree Behavior**: Captures distinct threshold splits nicely on the steel geometry attributes, giving decent overall accuracy though it tends to overfit slightly if unpruned.
+- **KNN Performance**: Works okay for local neighborhoods, but performance fluctuates depending on how well the features were normalized by the scaler.
+- **Naive Bayes Limitation**: Struggles the most here because the steel features clearly violate the strict conditional independence assumption.
+- **SVM Results**: Outperforms the others overall, showing that finding the optimal hyperplane in the scaled feature space handles these multi-class boundaries best.
+""")
